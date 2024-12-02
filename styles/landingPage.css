@@ -1,0 +1,316 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: calc(100vh - 100px);
+    /* Full viewport height */
+    background: url('../public/hero.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    /* Makes the background stay fixed while scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adds a dark overlay for text visibility */
+    z-index: -1;
+    /* Keeps it behind the content */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    text-align: center;
+    max-width: 700px;
+    margin: 15px auto;
+    padding: 0 20px;
+}
+
+.cta-btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 8px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Add smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+/* Courses Section */
+.courses {
+    padding: 3rem 0;
+    background: #f9f9f9;
+}
+
+.courses h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    text-align: center;
+    color: #777;
+    margin-bottom: 2rem;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.course-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: fill;
+}
+
+.course-card h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.course-card p {
+    color: #555;
+    margin: 0 1rem 1rem;
+}
+
+.course-card .btn {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.course-card .btn:hover {
+    background: #0056b3;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    padding: 3rem 0;
+    background: #eef4f7;
+}
+
+.why-choose-us h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.feature i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.feature p {
+    color: #555;
+}
+
+
+/* -----------------media query------------------ */
+
+/* For tablets and small screens */
+@media (max-width: 768px) {
+    .hero-content {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .cta-btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .feature i {
+        font-size: 2rem;
+    }
+
+    .feature h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature p {
+        font-size: 0.9rem;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1200px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .cta-btn {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+}

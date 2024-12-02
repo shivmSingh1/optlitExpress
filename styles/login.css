@@ -1,0 +1,163 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+/* Main container for both panels */
+.main-container {
+    display: flex;
+    flex-direction: row-reverse;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Left panel (green section) styles */
+.left-panel {
+    background-color: #2bbbad;
+    color: white;
+    width: 480px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 200px 30px;
+}
+
+/* Styling for the welcome message inside the left panel */
+.welcome h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Styling for the sign-in button in the left panel */
+.sign-up-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the sign-in button */
+.sign-up-btn:hover {
+    background-color: white;
+    color: #2bbbad;
+}
+
+/* Right panel (white section) styles */
+.right-panel {
+    background-color: white;
+    width: 60%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styling for the Create Account heading */
+.right-panel h1 {
+    color: #2bbbad;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Social media icons container */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Styling for social media icons */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #777;
+    text-decoration: none;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input fields styling */
+form input {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus {
+    outline: none;
+}
+
+/* Sign-up button styles */
+.login-btn {
+    width: 100%;
+    background-color: #2bbbad;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the sign-up button */
+.login-btn:hover {
+    background-color: #249f91;
+}
+
+.password-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 15px;
+}
+
+.password-field * {
+    width: 100%;
+    margin: 0;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .login-container {
+        margin-top: 30px;
+    }
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+}
