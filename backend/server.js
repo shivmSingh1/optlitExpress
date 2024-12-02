@@ -10,20 +10,27 @@ const app = express();
 
 connectDB();
 
-const _dirname = path.resolve();
+
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true })); // For form data (x-www-form-urlencoded)
 app.use(express.json()); // For JSON payloads
 app.use(cors());
-app.use(express.static(path.join(_dirname, "/dist")));
-app.get("*", (req, res) => {
-	res.sendFile(path.resolve(_dirname, "dist", "index.html"))
-})
 
-app.get("/", (req, res) => {
-	res.send("home")
-})
+// Serve static files from the 'public' and 'pages' directories
+app.use(express.static(path.join(__dirname, 'public'))); // For images, CSS, JS, etc.
+app.use(express.static(path.join(__dirname, 'pages')));  // For HTML pages like contact.html
+
+// Default route
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, 'index.html'));  // Serve the landing page by default
+});
+
+// Optionally, add a fallback route for 404 errors
+app.use((req, res) => {
+	res.status(404).send('Page not found');
+});
+
 
 app.post("/signup", async (req, res) => {
 	try {
