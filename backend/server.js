@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Serve your HTML pages
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'index.html'));  // Landing page
+	res.sendFile(path.join(__dirname, 'index.html'));  // Landing page
 });
 
 app.get('/about', (req, res) => {
