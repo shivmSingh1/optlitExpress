@@ -4,13 +4,17 @@ import User from "./models/userModel.js";
 import bcrypt from "bcrypt";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from 'url';
+
 const app = express();
 
 //connecting database
 
 connectDB();
 
-
+// Get the directory name using import.meta.url
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true })); // For form data (x-www-form-urlencoded)
