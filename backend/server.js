@@ -21,71 +21,32 @@ app.use(express.json()); // For JSON payloads
 app.use(cors());
 
 
-// Get __dirname in ES modules
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// __dirname ko manually set karna
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Serve static files from the 'dist' folder
+// Static files serve karna (dist folder se)
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Serve your HTML pages
+// Default route serve karna (index.html ko serve karna)
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'index.html'));  // Landing page
+	res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
+// Route for serving about page
 app.get('/about', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'about.html'));
+	res.sendFile(path.join(__dirname, 'dist', 'about.html'));
 });
 
+// Route for serving contact page
 app.get('/contact', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'contact.html'));
+	res.sendFile(path.join(__dirname, 'dist', 'contact.html'));
 });
 
-app.get('/contact', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'contact.html'));
-});
-
-app.get('/login', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'login.html'));
-});
-
-app.get('/signup', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'signup.html'));
-});
-
-// Course pages
-app.get('/course/web_development/css', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'web_development', 'css.html'));
-});
-
-app.get('/course/web_development/html', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'web_development', 'html.html'));
-});
-
-app.get('/course/web_development/javascript', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'web_development', 'javascript.html'));
-});
-
-app.get('/course/web_development/web_development', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'web_development', 'web_develoment.html'));
-});
-
-app.get('/course/c', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'c.html'));
-});
-
-app.get('/course/java', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'java.html'));
-});
-
-app.get('/course/networking', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'networking.html'));
-});
-
-app.get('/course/os', (req, res) => {
-	res.sendFile(path.join(__dirname, 'pages', 'course', 'os.html'));
+// Route for serving courses page
+app.get('/courses', (req, res) => {
+	res.sendFile(path.join(__dirname, 'dist', 'course', 'web_development', 'css.html'));
+	// Or whatever course page you want to serve
 });
 
 

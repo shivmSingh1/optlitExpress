@@ -1,12 +1,23 @@
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-	build: {
-		outDir: 'dist', // Ensure Vite's build output goes into the 'dist' folder
-		rollupOptions: {
-			input: {
-				main: 'index.html',  // Your landing page
-			},
-		},
-	},
+	plugins: [
+		viteStaticCopy({
+			targets: [
+				{
+					src: 'pages/**',
+					dest: 'pages'
+				},
+				{
+					src: 'scripts/**',
+					dest: 'scripts'
+				},
+				{
+					src: 'styles/**',
+					dest: 'styles'
+				}
+			]
+		})
+	]
 });
