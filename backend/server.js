@@ -21,38 +21,35 @@ app.use(express.json()); // For JSON payloads
 app.use(cors());
 
 
-// __dirname ko manually set karna
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Correctly set the path to the "dist" folder
+const distPath = path.join(__dirname, "../dist");
 
-// Static files serve karna (dist folder se)
-app.use(express.static(path.join(__dirname, 'dist')));
+// Serve static files from the "dist" folder
+app.use(express.static(distPath));
 
-// Default route serve karna (index.html ko serve karna)
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// Route: Home (index.html)
+app.get("/", (req, res) => {
+	res.sendFile(path.join(distPath, "index.html"));
 });
 
-// Route for serving about page
-app.get('/about', (req, res) => {
-	res.sendFile(path.join(__dirname, 'dist', 'about.html'));
+// Route: About
+app.get("/about", (req, res) => {
+	res.sendFile(path.join(distPath, "about.html"));
 });
 
-// Route for serving contact page
-app.get('/contact', (req, res) => {
-	res.sendFile(path.join(__dirname, 'dist', 'contact.html'));
+// Route: Contact
+app.get("/contact", (req, res) => {
+	res.sendFile(path.join(distPath, "contact.html"));
 });
 
-// Route for serving courses page
-app.get('/courses', (req, res) => {
-	res.sendFile(path.join(__dirname, 'dist', 'course', 'web_development', 'css.html'));
-	// Or whatever course page you want to serve
+// Route: Courses
+app.get("/courses", (req, res) => {
+	res.sendFile(path.join(distPath, "course", "web_development", "css.html"));
 });
 
-
-// Catch-all for any other page (useful for SPAs or missing pages)
-app.get('*', (req, res) => {
-	res.status(404).send('Page Not Found');
+// Route: SPA fallback (serve index.html for unknown routes)
+app.get("*", (req, res) => {
+	res.sendFile(path.join(distPath, "index.html"));
 });
 
 
