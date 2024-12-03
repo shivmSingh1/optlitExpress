@@ -21,6 +21,10 @@ app.use(express.json()); // For JSON payloads
 app.use(cors());
 
 
+// Mimic __dirname in ES Module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Correctly set the path to the "dist" folder
 const distPath = path.join(__dirname, "../dist");
 
